@@ -1,11 +1,10 @@
 import math
 from string import Template
 
-START_FILE = Template('''
-<?xml version="1.0" encoding="utf-8"?>
+START_FILE = Template('''<?xml version="1.0" encoding="utf-8"?>
 <Macro xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Name>BRUTE_FORCE_MO2_$script_number</Name>
-  <Guid>513b01d0-26ca-4bc4-806d-734d94d4862$script_number</Guid>
+  <Name>Macro 2</Name>
+  <Guid>425d0fa7-c77d-4074-a779-24a1ec14cee8</Guid>
   <MacroEvents>
 ''')
 
@@ -47,11 +46,9 @@ for output_file_number in range(0, split_files):
         f.write(START_FILE.substitute(script_number=output_file_number))
         for i in range(words_written, file_word_limit):
             words_written += 1
-            f.write('\n<!--START OF WORD LOOP-->\n')
             f.write(start_wrapper)
             f.write(word_list[i].lower())
             f.write(end_wrapper)
-            f.write('\n<!--END OF WORD LOOP-->\n')
         f.write(END_FILE)
 
 print('Finished')
